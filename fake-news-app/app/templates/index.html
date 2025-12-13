@@ -1,0 +1,30 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Fake News Detector</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+</head>
+<body>
+  <main class="container">
+    <h1>Fake News Detector</h1>
+    <p>Paste a news article or headline below and press <strong>Check</strong>.</p>
+
+    <form action="{{ url_for('predict') }}" method="post" id="predict-form">
+      <textarea name="text" id="text" placeholder="Paste article or headline here..." rows="8" required></textarea>
+      <div class="controls">
+        <button type="submit" class="btn">Check</button>
+        <button type="button" id="example-btn" class="btn secondary">Example</button>
+      </div>
+    </form>
+
+    <section class="info">
+      <h3>How it works</h3>
+      <p>This uses a TF-IDF representation + linear classifier trained on labeled news. Predictions are probabilistic approximations and may be wrong — use as an aid, not gospel.</p>
+    </section>
+  </main>
+
+  <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>

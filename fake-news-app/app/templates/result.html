@@ -1,0 +1,26 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Result — Fake News Detector</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+</head>
+<body>
+  <main class="container">
+    <h1>Prediction</h1>
+
+    <div class="card">
+      <h2>Prediction: <span class="label">{{ prediction }}</span></h2>
+      {% if score is not none %}
+      <p>Model score (distance to decision boundary): <strong>{{ '%.3f'|format(score) }}</strong></p>
+      {% endif %}
+      <h3>Text</h3>
+      <p class="article">{{ text }}</p>
+      <div class="controls">
+        <a href="{{ url_for('home') }}" class="btn">Check another</a>
+      </div>
+    </div>
+  </main>
+</body>
+</html>
