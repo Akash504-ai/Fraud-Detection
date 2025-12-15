@@ -1,5 +1,6 @@
-﻿from flask import Flask, render_template, request, redirect, url_for
-from model_utils import load_model, load_vectorizer
+from flask import Flask, render_template, request, redirect, url_for
+from app.model_utils import load_model, load_vectorizer
+
 
 app = Flask(__name__, template_folder='templates', static_folder='static')
 
